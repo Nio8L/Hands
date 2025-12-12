@@ -14,18 +14,19 @@ public class Tile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start() {
-        ChangeColor();
-    }
-
-    public virtual void ChangeColor()
+    public void ChangeColor()
     {
         spriteRenderer.color = type.color;
     }
 
     private void OnMouseDown() {
-        type = LevelEditor.instance.GetTileType();
-        ChangeColor();
+        TileType tileType = LevelEditor.instance.GetEditingType();
+        
+        if (tileType != null)
+        { 
+            type = LevelEditor.instance.GetEditingType();
+            ChangeColor();
+        }
     }
 
 }
