@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +10,8 @@ public class Tile : MonoBehaviour
 {
     public TileType type;
     private SpriteRenderer spriteRenderer;
+
+    public int x, y;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();

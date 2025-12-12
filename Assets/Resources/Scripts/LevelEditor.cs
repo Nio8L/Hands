@@ -42,6 +42,8 @@ public class LevelEditor : MonoBehaviour, InterfaceDataPersistance
                 GameObject newTile = Instantiate(tilePrefab, new(x + x * 0.2f, y + y * 0.2f), Quaternion.identity);
                 newTile.transform.parent = transform;
                 tiles[x, y] = newTile.GetComponent<Tile>();
+                tiles[x, y].x = x;
+                tiles[x, y].y = y;
             }
         }
 
