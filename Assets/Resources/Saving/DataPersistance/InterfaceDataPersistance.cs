@@ -3,7 +3,7 @@ using UnityEngine;
 public interface InterfaceDataPersistance
 {
 
-    void LoadData(GameData data);
-    void SaveData(ref GameData data); 
+    void loadData(GameData data);
+    void saveData(ref GameData data); 
 
 }
