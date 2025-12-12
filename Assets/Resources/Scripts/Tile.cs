@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -17,4 +22,10 @@ public class Tile : MonoBehaviour
     {
         spriteRenderer.color = type.color;
     }
+
+    private void OnMouseDown() {
+        type = LevelEditor.instance.GetTileType();
+        ChangeColor();
+    }
+
 }

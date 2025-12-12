@@ -1,40 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelEditor : MonoBehaviour
 {
+    public static LevelEditor instance;
+
     public GameObject tilePrefab;
     public Tile[,] tiles;
 
     public int widht;
     public int height;
     
-    private void OnValidate() {
-        if (Application.isPlaying)
+    public int typeIndex;
+
+    private void Awake() {
+        if (instance != null)
         {
-            if (widht <= 0)
-            {
-                widht = 1;
-            }
-
-            if (height <= 0)
-            {
-                height = 1;
-            }
-
-            Generate();
+            Destroy(gameObject);
+            return;
         }
+
+        instance = this;
     }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Generate();
     }
 
     void Generate()
@@ -54,7 +46,6 @@ public class LevelEditor : MonoBehaviour
         {
             TileType type = Resources.Load<TileType>("Tiles/Wall");
             tiles[i, 0].type = Instantiate(type);
-            Debug.Log("changing to " + tiles[i, 0].type.color);
             tiles[i, 0].ChangeColor();
         }
     }
@@ -73,5 +64,11 @@ public class LevelEditor : MonoBehaviour
         }
         tiles = new Tile[widht, height];
 
+    }
+
+    public TileType GetTileType()
+    {
+        List<TileType> allTiles = Resources.LoadAll<TileType>("Tiles").ToList();
+        return allTiles[typeIndex];
     }
 }
