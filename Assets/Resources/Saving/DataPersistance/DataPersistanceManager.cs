@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO.Compression;
 using System.Linq;
 
@@ -28,7 +27,7 @@ public class DataPersistanceManager {
 
     private void StartGame()
     {
-        LoadGame();
+        loadGame();
     }
 
     private void OnAppQuit()
