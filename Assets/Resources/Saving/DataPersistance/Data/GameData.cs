@@ -4,7 +4,7 @@ using System.Collections;
 
 
 [System.Serializable]
-public class NewEmptyCSharpScript {
+public class GameData {
     public int[] vectors;
 
     public NewEmptyCSharpScript() {
