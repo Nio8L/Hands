@@ -49,6 +49,14 @@ public class LevelEditor : MonoBehaviour
                 tiles[x, y] = newTile.GetComponent<Tile>();
             }
         }
+
+        for (int i = 0; i < widht; i++)
+        {
+            TileType type = Resources.Load<TileType>("Tiles/Wall");
+            tiles[i, 0].type = Instantiate(type);
+            Debug.Log("changing to " + tiles[i, 0].type.color);
+            tiles[i, 0].ChangeColor();
+        }
     }
 
     void Delete()
