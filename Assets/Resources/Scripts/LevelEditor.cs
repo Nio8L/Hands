@@ -3,7 +3,7 @@ using System.Linq;
 using Unity.Collections;
 using UnityEngine;
 
-public class LevelEditor : MonoBehaviour
+public class LevelEditor : MonoBehaviour, InterfaceDataPersistance
 {
     public static LevelEditor instance;
 
