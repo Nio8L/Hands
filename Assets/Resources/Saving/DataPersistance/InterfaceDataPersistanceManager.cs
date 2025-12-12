@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface InterfaceDataPersistance
+public interface InterfaceDataPersistanceManager
 {
 
     void LoadData(GameData data);
