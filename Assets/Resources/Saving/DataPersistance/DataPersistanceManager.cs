@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 
-public class DataPersistanceManager {
+public class DataPersistanceManager : MonoBehaviour{
     private GameData gameData;
-    private List<InterfaceDataPersistance> dataPersistance()
+    private List<InterfaceDataPersistance> dataPersistanceObjects; 
+    private List<InterfaceDataPersistance> FindAllDataPersistanceObjects()
     {
         IEnumerable<InterfaceDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>().OfType<InterfaceDataPersistance>();
         return new List<InterfaceDataPersistance>(dataPersistanceObjects);
@@ -32,12 +33,13 @@ public class DataPersistanceManager {
 
     private void StartGame()
     {
+        this.dataPersistanceObjects = FindAllDataPersistanceObjects();
         loadGame();
     }
 
-    private void OnAppQuit()
+   private void OnApplicationQuit()
     {
-        saveGame();
+    saveGame();
     }
 
 
@@ -53,7 +55,7 @@ public class DataPersistanceManager {
         {
             newGame();
         }
-        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistance())
+        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistanceObjects)
         {
             dataPersistanceObj.loadData(gameData);
         }
@@ -61,7 +63,7 @@ public class DataPersistanceManager {
 
     public void saveGame()
     {
-        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistance())
+        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistanceObjects)
         {
             dataPersistanceObj.saveData(ref gameData);
         } 
