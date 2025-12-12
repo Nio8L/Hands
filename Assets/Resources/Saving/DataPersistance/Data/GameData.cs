@@ -7,7 +7,7 @@ using System.Collections;
 public class GameData {
     public int[] vectors;
 
-    public NewEmptyCSharpScript() {
+    public GameData() {
         this.vectors = new int[0];
     }  
 

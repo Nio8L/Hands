@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Linq;
 
-public class NewMonoBehaviourScript : MonoBehaviour {
+public class DataPersistanceManager {
     private GameData gameData;
     private List<InterfaceDataPersistance> dataPersistance;
 
