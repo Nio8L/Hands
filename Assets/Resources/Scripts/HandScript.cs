@@ -40,8 +40,11 @@ public class HandScript : MonoBehaviour
 
     void Move(int x, int y)
     {
-        transform.position = LevelEditor.instance.tiles[x, y].transform.position;
-        this.x = x;
-        this.y = y;
+        if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height) && LevelEditor.instance.tiles[x, y].type.walkable)
+        {
+            transform.position = LevelEditor.instance.tiles[x, y].transform.position;
+            this.x = x;
+            this.y = y;
+        }
     }
 }
