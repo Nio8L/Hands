@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 public class LevelEditor : MonoBehaviour
@@ -11,8 +12,8 @@ public class LevelEditor : MonoBehaviour
 
     public int width;
     public int height;
-    
-    public int typeIndex;
+
+    TileType editingType;
 
     private void Awake() {
         if (instance != null)
@@ -38,6 +39,7 @@ public class LevelEditor : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 GameObject newTile = Instantiate(tilePrefab, new(x + x * 0.2f, y + y * 0.2f), Quaternion.identity);
+                newTile.transform.parent = transform;
                 tiles[x, y] = newTile.GetComponent<Tile>();
             }
         }
@@ -66,9 +68,13 @@ public class LevelEditor : MonoBehaviour
 
     }
 
-    public TileType GetTileType()
+    public void SetDisplayType(TileType type)
     {
-        List<TileType> allTiles = Resources.LoadAll<TileType>("Tiles").ToList();
-        return allTiles[typeIndex];
+        editingType = type;
+    }
+
+    public TileType GetEditingType()
+    {
+        return editingType;
     }
 }
