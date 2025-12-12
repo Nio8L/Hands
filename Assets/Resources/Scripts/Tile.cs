@@ -22,11 +22,15 @@ public class Tile : MonoBehaviour
     private void OnMouseDown() {
         TileType tileType = LevelEditor.instance.GetEditingType();
         
-        if (tileType != null)
-        { 
-            type = LevelEditor.instance.GetEditingType();
-            ChangeColor();
-        }
+        SetType(tileType);
+    }
+
+    public void SetType(TileType tileType)
+    {
+        if(tileType == null) return;
+
+        type = tileType;
+        ChangeColor();
     }
 
 }

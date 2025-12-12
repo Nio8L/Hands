@@ -77,4 +77,14 @@ public class LevelEditor : MonoBehaviour, InterfaceDataPersistance
     {
         return editingType;
     }
+
+    public void loadData(GameData data)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void saveData(ref GameData data)
+    {
+        throw new System.NotImplementedException();
+    }
 }

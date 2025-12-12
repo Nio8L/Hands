@@ -39,7 +39,7 @@ public class DataPersistanceManager : MonoBehaviour{
 
    private void OnApplicationQuit()
     {
-    saveGame();
+        saveGame();
     }
 
 
