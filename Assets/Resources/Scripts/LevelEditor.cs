@@ -1,47 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelEditor : MonoBehaviour
 {
+    public static LevelEditor instance;
+
     public GameObject tilePrefab;
     public Tile[,] tiles;
 
-    public int widht;
+    public int width;
     public int height;
     
-    private void OnValidate() {
-        if (Application.isPlaying)
+    public int typeIndex;
+
+    private void Awake() {
+        if (instance != null)
         {
-            if (widht <= 0)
-            {
-                widht = 1;
-            }
-
-            if (height <= 0)
-            {
-                height = 1;
-            }
-
-            Generate();
+            Destroy(gameObject);
+            return;
         }
+
+        instance = this;
     }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Generate();
     }
 
     void Generate()
     {
         Delete();
 
-        for (int x = 0; x < widht; x++)
+        for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
@@ -49,13 +41,20 @@ public class LevelEditor : MonoBehaviour
                 tiles[x, y] = newTile.GetComponent<Tile>();
             }
         }
+
+        for (int i = 0; i < width; i++)
+        {
+            TileType type = Resources.Load<TileType>("Tiles/Wall");
+            tiles[i, 0].type = Instantiate(type);
+            tiles[i, 0].ChangeColor();
+        }
     }
 
     void Delete()
     {
         if (tiles == null)
         {
-            tiles = new Tile[widht, height];
+            tiles = new Tile[width, height];
             return;
         }
 
@@ -63,7 +62,13 @@ public class LevelEditor : MonoBehaviour
         {
             Destroy(tile.gameObject);
         }
-        tiles = new Tile[widht, height];
+        tiles = new Tile[width, height];
 
+    }
+
+    public TileType GetTileType()
+    {
+        List<TileType> allTiles = Resources.LoadAll<TileType>("Tiles").ToList();
+        return allTiles[typeIndex];
     }
 }

@@ -1,16 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public TileType type;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        ChangeColor();
     }
+
+    public virtual void ChangeColor()
+    {
+        spriteRenderer.color = type.color;
+    }
+
+    private void OnMouseDown() {
+        type = LevelEditor.instance.GetTileType();
+        ChangeColor();
+    }
+
 }
