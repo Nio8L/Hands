@@ -15,6 +15,7 @@ public class HandScript : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move(x, y + 1);
@@ -40,8 +41,11 @@ public class HandScript : MonoBehaviour
 
     void Move(int x, int y)
     {
-        transform.position = LevelEditor.instance.tiles[x, y].transform.position;
-        this.x = x;
-        this.y = y;
+        if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height) && LevelEditor.instance.tiles[x, y].type.walkable)
+        {
+            transform.position = LevelEditor.instance.tiles[x, y].transform.position;
+            this.x = x;
+            this.y = y;
+        }
     }
 }
