@@ -5,10 +5,10 @@ using System.Collections;
 
 [System.Serializable]
 public class GameData {
-    public int[] vectors;
+    public string[,] tiles;
 
     public GameData() {
-        this.vectors = new int[0];
+        this.tiles = new string[,];
     }  
 
     
