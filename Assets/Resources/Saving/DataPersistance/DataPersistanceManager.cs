@@ -6,7 +6,11 @@ using System.Linq;
 
 public class DataPersistanceManager {
     private GameData gameData;
-    private List<InterfaceDataPersistance> dataPersistance;
+    private List<InterfaceDataPersistance> dataPersistance()
+    {
+        IEnumerable<InterfaceDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>().OfType<InterfaceDataPersistance>();
+        return new List<InterfaceDataPersistance>(dataPersistanceObjects);
+    }
 
      
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +19,7 @@ public class DataPersistanceManager {
         get; 
         private set;
     }
+
 
     private void Awake()
     {
@@ -48,11 +53,18 @@ public class DataPersistanceManager {
         {
             newGame();
         }
-        
+        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistance())
+        {
+            dataPersistanceObj.loadData(gameData);
+        }
     }
 
     public void saveGame()
     {
+        foreach (InterfaceDataPersistance dataPersistanceObj in dataPersistance())
+        {
+            dataPersistanceObj.saveData(ref gameData);
+        } 
         
     }
 }

@@ -15,6 +15,7 @@ public class HandScript : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move(x, y + 1);
