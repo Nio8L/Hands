@@ -33,4 +33,9 @@ public class Tile : MonoBehaviour
         ChangeColor();
     }
 
+    public void Default()
+    {
+        SetType(LevelEditor.instance.defaultType);
+    }
+
 }

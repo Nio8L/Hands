@@ -14,6 +14,7 @@ public class LevelEditor : MonoBehaviour, InterfaceDataPersistance
     public int height;
 
     TileType editingType;
+    public TileType defaultType;
 
     private void Awake() {
         if (instance != null)
