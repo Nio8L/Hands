@@ -9,7 +9,7 @@ public class LevelEditor : MonoBehaviour
     public GameObject tilePrefab;
     public Tile[,] tiles;
 
-    public int widht;
+    public int width;
     public int height;
     
     public int typeIndex;
@@ -33,7 +33,7 @@ public class LevelEditor : MonoBehaviour
     {
         Delete();
 
-        for (int x = 0; x < widht; x++)
+        for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
@@ -42,7 +42,7 @@ public class LevelEditor : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < widht; i++)
+        for (int i = 0; i < width; i++)
         {
             TileType type = Resources.Load<TileType>("Tiles/Wall");
             tiles[i, 0].type = Instantiate(type);
@@ -54,7 +54,7 @@ public class LevelEditor : MonoBehaviour
     {
         if (tiles == null)
         {
-            tiles = new Tile[widht, height];
+            tiles = new Tile[width, height];
             return;
         }
 
@@ -62,7 +62,7 @@ public class LevelEditor : MonoBehaviour
         {
             Destroy(tile.gameObject);
         }
-        tiles = new Tile[widht, height];
+        tiles = new Tile[width, height];
 
     }
 
