@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 6785529968877943624, guid: cf4d573527a80424fa3f76175764dc0c, type: 3}
+      propertyPath: handPart
+      value: 
+      objectReference: {fileID: 11400000, guid: 7669c6be99f0b554a9a21c2379928012, type: 2}
     - target: {fileID: 9212367901490457950, guid: cf4d573527a80424fa3f76175764dc0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.71719

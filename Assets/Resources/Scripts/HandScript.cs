@@ -1,4 +1,7 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,13 +12,15 @@ public class HandScript : MonoBehaviour
 
     int x = 0, y = 0;
 
+    public List<Tile> handSegment;
+    public TileType handPart;
+
     private void Start() {
         transform.position = LevelEditor.instance.transform.position;
     }
 
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move(x, y + 1);
@@ -41,11 +46,27 @@ public class HandScript : MonoBehaviour
 
     void Move(int x, int y)
     {
-        if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height) && LevelEditor.instance.tiles[x, y].type.walkable)
+        if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height))
         {
-            transform.position = LevelEditor.instance.tiles[x, y].transform.position;
-            this.x = x;
-            this.y = y;
+            Tile targetTile = LevelEditor.instance.tiles[x, y];
+            if (handSegment.Contains(targetTile))
+            {
+                if (handSegment[^1].x == targetTile.x && handSegment[^1].y == targetTile.y)
+                {
+                    handSegment.RemoveAt(handSegment.Count - 1);
+                    transform.position = targetTile.transform.position;
+                    targetTile.Default();
+                }
+            }
+            if (LevelEditor.instance.tiles[x, y].type.walkable)
+            {
+                transform.position = targetTile.transform.position;
+                handSegment.Add(targetTile);
+                targetTile.SetType(handPart);
+                this.x = x;
+                this.y = y;
+                Debug.Log("Tile is right now at " + x + " " + y);
+            }
         }
     }
 }
