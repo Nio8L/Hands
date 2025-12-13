@@ -11,6 +11,7 @@ public class HandScript : MonoBehaviour
 
     public List<Tile> handSegment;
     public int maxLength;
+    public string dir;
     int controller;
     Color handColor;
     public int movesLeft;
@@ -24,6 +25,19 @@ public class HandScript : MonoBehaviour
         Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
     }
 
+    public int GetDirectionIndex()
+{
+    switch (dir)
+    {
+        case "up": return 0;
+        case "right": return 1;
+        case "down": return 2;
+        case "left": return 3;
+        default: return 0;
+    }
+}
+
+
     void Update()
     {
         if (controller == 1)
@@ -32,21 +46,25 @@ public class HandScript : MonoBehaviour
             {
                 Move(x, y + 1);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
+                dir = "up";
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Move(x, y - 1);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
+                dir = "down";
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 Move(x - 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
+                dir = "left";
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 Move(x + 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                dir = "right";
             }
         }
         else
@@ -55,21 +73,25 @@ public class HandScript : MonoBehaviour
             {
                 Move(x, y + 1);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
+                dir = "up";
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Move(x, y - 1);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
+                dir = "down";
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Move(x - 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
+                dir = "left";
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Move(x + 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                dir = "right";
             }
         }
     }
@@ -117,10 +139,11 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void ForceMove(int direction, int length)
+    public void ForceMove(int length)
     {
         int dx = 0;
         int dy = 0;
+        int direction = GetDirectionIndex();
 
         switch (direction)
         {

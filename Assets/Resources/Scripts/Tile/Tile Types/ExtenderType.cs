@@ -11,7 +11,7 @@ public class ExtenderType : TileType
     {
         Debug.Log("step on");
        
-        hand.ForceMove(direction, length);
+        hand.ForceMove(length);
     }
 
     public override void Uneffect(HandScript hand)
