@@ -266,11 +266,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5847771890618608798, guid: 969c63969e553fb428c83f796baf162b, type: 3}
       propertyPath: width
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5847771890618608798, guid: 969c63969e553fb428c83f796baf162b, type: 3}
       propertyPath: height
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5847771890618608798, guid: 969c63969e553fb428c83f796baf162b, type: 3}
       propertyPath: levelPrefab
