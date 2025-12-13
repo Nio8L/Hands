@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     private void Start() {
         defaultType = Instantiate(type);
-        type = Instantiate(type);
+        //type = Instantiate(type);
     }
 
     public void ChangeColor()
@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour
     {
         if(tileType == null) return;
 
-        type = Instantiate(tileType);
+        type = tileType;
         ChangeColor();
     }
 
