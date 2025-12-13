@@ -15,13 +15,24 @@ public class HandScript : MonoBehaviour
     Color handColor;
     public int movesLeft;
 
+    MoveCounter moveCounter;
+
     public void Setup(Color color, int controller)
     {
         handColor = color;
         this.controller = controller;
         maxLength = 3;
-        movesLeft = maxLength;
-        Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
+
+        if (controller == 1)
+        {
+            moveCounter = GameObject.Find("MoveCounterWASD").GetComponent<MoveCounter>();
+        }
+        else
+        {
+            moveCounter = GameObject.Find("MoveCounterArrows").GetComponent<MoveCounter>();
+        }
+
+        UpdateMoves(maxLength);
     }
 
     void Update()
@@ -92,8 +103,7 @@ public class HandScript : MonoBehaviour
                         return;   
                     }
                     handSegment.Remove(targetTile);
-                    if (handSegment.Count < maxLength) movesLeft += 1;
-                    Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
+                    if (handSegment.Count < maxLength) UpdateMoves(movesLeft + 1);
 
                     targetTile.Default();
                     UpdatePosition(x, y);
@@ -104,9 +114,7 @@ public class HandScript : MonoBehaviour
             else if (targetTile.type.walkable && movesLeft > 0)
             {
                 handSegment.Add(originTile);
-                movesLeft -= 1;
-                Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
-
+                UpdateMoves(movesLeft - 1);
                 originTile.HandOn(handColor);
 
                 UpdatePosition(x, y);
@@ -139,8 +147,7 @@ public class HandScript : MonoBehaviour
             if (targetTile.type.walkable)
             {
                 handSegment.Add(originTile);
-                Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
-
+            
                 originTile.HandOn(handColor);
 
                 UpdatePosition(x + dx, y + dy);
@@ -160,9 +167,8 @@ public class HandScript : MonoBehaviour
         {
             Tile targetTile = handSegment[^1];
             Tile originTile = Level.instance.tiles[x, y];
-            movesLeft = maxLength;
+            UpdateMoves(maxLength);
             handSegment.Remove(targetTile);
-            Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
 
             targetTile.Default();
             UpdatePosition(targetTile.x, targetTile.y);
@@ -175,5 +181,11 @@ public class HandScript : MonoBehaviour
         transform.position = Level.instance.tiles[x, y].transform.position;
         this.x = x;
         this.y = y;
+    }
+
+    void UpdateMoves(int remaining)
+    {
+        movesLeft = remaining;
+        moveCounter.UpdateCounter(movesLeft);
     }
 }
