@@ -16,24 +16,13 @@ public class HandScript : MonoBehaviour
     Color handColor;
     public int movesLeft;
 
-    MoveCounter moveCounter;
-
     public void Setup(Color color, int controller)
     {
         handColor = color;
         this.controller = controller;
         maxLength = 3;
-
-        if (controller == 1)
-        {
-            moveCounter = GameObject.Find("MoveCounterWASD").GetComponent<MoveCounter>();
-        }
-        else
-        {
-            moveCounter = GameObject.Find("MoveCounterArrows").GetComponent<MoveCounter>();
-        }
-
-        UpdateMoves(maxLength);
+        movesLeft = maxLength;
+        Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
     }
 
     public int GetDirectionIndex()
@@ -55,54 +44,62 @@ public class HandScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
+                dir = "up";
                 Move(x, y + 1);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
-                dir = "up";
+                
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
+                dir = "down";
                 Move(x, y - 1);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
-                dir = "down";
+                
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
+                dir = "left";
                 Move(x - 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
-                dir = "left";
+                
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
+                dir = "right";
                 Move(x + 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-                dir = "right";
+                
             }
         }
         else
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                dir = "up";
                 Move(x, y + 1);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
-                dir = "up";
+                
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                dir = "down";
                 Move(x, y - 1);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
-                dir = "down";
+                
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                dir = "left";
                 Move(x - 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
-                dir = "left";
+                
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                dir = "right";
                 Move(x + 1, y);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-                dir = "right";
+                
             }
         }
     }
@@ -125,7 +122,8 @@ public class HandScript : MonoBehaviour
                         return;   
                     }
                     handSegment.Remove(targetTile);
-                    if (handSegment.Count < maxLength) UpdateMoves(movesLeft + 1);
+                    if (handSegment.Count < maxLength) movesLeft += 1;
+                    Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
 
                     targetTile.Default();
                     UpdatePosition(x, y);
@@ -136,7 +134,9 @@ public class HandScript : MonoBehaviour
             else if (targetTile.type.walkable && movesLeft > 0)
             {
                 handSegment.Add(originTile);
-                UpdateMoves(movesLeft - 1);
+                movesLeft -= 1;
+                Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
+
                 originTile.HandOn(handColor);
 
                 UpdatePosition(x, y);
@@ -170,7 +170,8 @@ public class HandScript : MonoBehaviour
             if (targetTile.type.walkable)
             {
                 handSegment.Add(originTile);
-            
+                Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
+
                 originTile.HandOn(handColor);
 
                 UpdatePosition(x + dx, y + dy);
@@ -190,8 +191,9 @@ public class HandScript : MonoBehaviour
         {
             Tile targetTile = handSegment[^1];
             Tile originTile = Level.instance.tiles[x, y];
-            UpdateMoves(maxLength);
+            movesLeft = maxLength;
             handSegment.Remove(targetTile);
+            Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
 
             targetTile.Default();
             UpdatePosition(targetTile.x, targetTile.y);
@@ -204,11 +206,5 @@ public class HandScript : MonoBehaviour
         transform.position = Level.instance.tiles[x, y].transform.position;
         this.x = x;
         this.y = y;
-    }
-
-    void UpdateMoves(int remaining)
-    {
-        movesLeft = remaining;
-        moveCounter.UpdateCounter(movesLeft);
     }
 }
