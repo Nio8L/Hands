@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     public void pauseMenu()
     {
-        if (Input.GetKeyDown(Key.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 0f;
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
