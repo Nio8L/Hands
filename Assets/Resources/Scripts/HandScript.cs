@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class HandScript : MonoBehaviour
 {
@@ -13,14 +14,13 @@ public class HandScript : MonoBehaviour
     int x = 0, y = 0;
 
     public List<Tile> handSegment;
-    public TileType handPart;
     public int maxLength;
     int controller;
+    Color handColor;
 
     public void Setup(Color color, int controller)
     {
-        handPart = Instantiate(handPart);
-        handPart.color = color;
+        handColor = color;
         this.controller = controller;
     }
 
@@ -92,7 +92,7 @@ public class HandScript : MonoBehaviour
             }else if (targetTile.type.walkable && handSegment.Count < maxLength)
             {
                 handSegment.Add(originTile);
-                originTile.SetType(handPart);
+                originTile.HandOn(handColor);
         
                 UpdatePosition(x, y);
             }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   color: {r: 0.6603774, g: 0.40510863, b: 0.15824135, a: 1}
-  walkable: 0
+  walkable: 1
