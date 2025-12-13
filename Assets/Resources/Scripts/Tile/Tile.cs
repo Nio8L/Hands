@@ -21,9 +21,6 @@ public class Tile : MonoBehaviour
 
     private void Start() {
         defaultType = Instantiate(type);
-        type = Instantiate(type);
-
-        ChangeColor();
     }
 
     public void ChangeColor()
@@ -52,9 +49,25 @@ public class Tile : MonoBehaviour
         SetType(defaultType);
     }
 
-    public void HandOn(Color handColor)
+    public void HandOn(Color color)
     {
-        spriteRenderer.color = handColor;
+        spriteRenderer.color = color;
+    }
+
+    public void Activate(HandScript hand)
+    {
+        type.Effect(hand);
+    }
+
+    public void Deactivate(HandScript hand)
+    {
+        if (hand.handSegment.Contains(this))
+        {
+            Debug.Log("has hand segment");
+            return;
+        }
+
+        type.Uneffect(hand);
     }
 
 }
