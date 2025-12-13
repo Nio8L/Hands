@@ -15,10 +15,6 @@ public class HandScript : MonoBehaviour
     public List<Tile> handSegment;
     public TileType handPart;
 
-    private void Start() {
-        transform.position = LevelEditor.instance.transform.position;
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -46,7 +42,7 @@ public class HandScript : MonoBehaviour
 
     void Move(int x, int y)
     {
-        if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height))
+        if ((0 <= x && x < Level.instance.width) && (0 <= y && y < Level.instance.height))
         {
             Tile targetTile = Level.instance.tiles[x, y];
             Tile originTile = Level.instance.tiles[this.x, this.y];
@@ -70,7 +66,7 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    void UpdatePosition(int x, int y)
+    public void UpdatePosition(int x, int y)
     {
         transform.position = Level.instance.tiles[x, y].transform.position;
         this.x = x;

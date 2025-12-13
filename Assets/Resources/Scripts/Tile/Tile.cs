@@ -25,6 +25,8 @@ public class Tile : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        if (LevelEditor.instance == null) return;
+
         TileType tileType = LevelEditor.instance.GetEditingType();
         
         SetType(tileType);

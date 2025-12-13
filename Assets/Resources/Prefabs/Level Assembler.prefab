@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8163794364495835391
+--- !u!1 &1315195656216809818
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8092614571337749501}
-  - component: {fileID: 5847771890618608798}
+  - component: {fileID: 7449390803762634701}
+  - component: {fileID: 4438379378925925935}
   m_Layer: 0
-  m_Name: LevelEditor
+  m_Name: Level Assembler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8092614571337749501
+--- !u!4 &7449390803762634701
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163794364495835391}
+  m_GameObject: {fileID: 1315195656216809818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9245521, y: 2.581193, z: -0.03997191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5847771890618608798
+--- !u!114 &4438379378925925935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163794364495835391}
+  m_GameObject: {fileID: 1315195656216809818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9421951056176694e847b4b06feba7b1, type: 3}
+  m_Script: {fileID: 11500000, guid: dc7c58b8205086442bb770eed01dc5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPrefab: {fileID: 8119121012946913432, guid: de1d85e783bfec844902c88828aab5e0, type: 3}
-  width: 5
-  height: 5
+  levelPrefab: {fileID: 5289462303909170931, guid: bdfceb9d00e316243bf0346c5ed9cd25, type: 3}
+  handPrefab: {fileID: 6742011027933717527, guid: cf4d573527a80424fa3f76175764dc0c, type: 3}
+  startX1: 1
+  startY1: 1
+  startX2: 0
+  startY2: 0
