@@ -64,7 +64,6 @@ public class Tile : MonoBehaviour
     {
         if (hand.handSegment.Contains(this))
         {
-            Debug.Log("has hand segment");
             return;
         }
 
