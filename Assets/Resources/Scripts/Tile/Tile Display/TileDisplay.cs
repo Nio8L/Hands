@@ -7,8 +7,11 @@ public class TileDisplay : MonoBehaviour
 
     public void SetType(TileType type)
     {
-        displayedType = type;
-        GetComponent<SpriteRenderer>().color = displayedType.color;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null && displayedType != null)
+        {
+            sr.sprite = displayedType.sprite;
+        }
     }
 
     private void OnMouseDown() {

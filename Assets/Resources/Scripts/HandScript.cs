@@ -137,7 +137,7 @@ public class HandScript : MonoBehaviour
                 movesLeft -= 1;
                 Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
 
-                originTile.HandOn(handColor);
+                originTile.HandOn();
 
                 UpdatePosition(x, y);
 
@@ -172,7 +172,7 @@ public class HandScript : MonoBehaviour
                 handSegment.Add(originTile);
                 Debug.Log($"[HAND {controller}] Moves left: {movesLeft}");
 
-                originTile.HandOn(handColor);
+                originTile.HandOn();
 
                 UpdatePosition(x + dx, y + dy);
 
