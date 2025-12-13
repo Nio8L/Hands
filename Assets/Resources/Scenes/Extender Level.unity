@@ -133,15 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4438379378925925935, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
       propertyPath: startX2
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438379378925925935, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
-      propertyPath: startY1
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4438379378925925935, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
       propertyPath: startY2
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4438379378925925935, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
       propertyPath: color1.a
@@ -178,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 4438379378925925935, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
       propertyPath: levelPrefab
       value: 
-      objectReference: {fileID: 2653156648314279002, guid: 186c7ca29140948fc8d1529f4682a4b0, type: 3}
+      objectReference: {fileID: 6827774889419647462, guid: 36083b573395c334a851e5395f033ace, type: 3}
     - target: {fileID: 7449390803762634701, guid: 98a3938d58c7ecd44a7652a9d50d0f07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9245521
