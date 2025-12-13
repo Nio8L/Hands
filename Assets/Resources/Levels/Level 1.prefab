@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 6687715727599202864}
   - component: {fileID: 8979612977246486041}
   m_Layer: 0
-  m_Name: Level(Clone)
+  m_Name: Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
