@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   color: {r: 0.5245282, g: 0.5245282, b: 0.5245282, a: 1}
-  sprite: {fileID: -3218248262026354849, guid: 9dff79955d71c054eb819b6e9f0658aa, type: 3}
   walkable: 0

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e52d47924eacb149a954816acb5afac, type: 3}
   m_Name: Boost
   m_EditorClassIdentifier: 
-  sprite: {fileID: -66238934464334820, guid: 7485ba8e0a8c04e45a31a5b72b72a93f, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 1}
   walkable: 1
