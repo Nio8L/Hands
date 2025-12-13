@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b94849c65e897dc4b9616c9dfabab8df
+guid: fef102a648d3d4f4abfb94380092af56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1212849854020121697
-    second: Button_doors_0
-  - first:
-      213: -5941862754144891906
-    second: Button_doors_1
+      213: 5213229242370633579
+    second: Door_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_doors_0
+      name: Door_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 26
-        height: 28
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 164f0ca2488e4d010800000000000000
-      internalID: 1212849854020121697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_doors_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 2
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: efbc1137e434a8da0800000000000000
-      internalID: -5941862754144891906
+      spriteID: b6f2e24006c195840800000000000000
+      internalID: 5213229242370633579
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button_doors_0: 1212849854020121697
-      Button_doors_1: -5941862754144891906
+      Door_0: 5213229242370633579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
