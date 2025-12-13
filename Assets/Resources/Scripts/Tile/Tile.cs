@@ -19,6 +19,13 @@ public class Tile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Start() {
+        defaultType = Instantiate(type);
+        type = Instantiate(type);
+
+        ChangeColor();
+    }
+
     public void ChangeColor()
     {
         spriteRenderer.color = type.color;
@@ -43,6 +50,11 @@ public class Tile : MonoBehaviour
     public void Default()
     {
         SetType(defaultType);
+    }
+
+    public void HandOn(Color handColor)
+    {
+        spriteRenderer.color = handColor;
     }
 
 }
