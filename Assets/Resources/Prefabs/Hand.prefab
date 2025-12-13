@@ -191,3 +191,4 @@ MonoBehaviour:
   speed: 1
   handSegment: []
   handPart: {fileID: 11400000, guid: 7669c6be99f0b554a9a21c2379928012, type: 2}
+  color: {r: 0.735849, g: 0.12634388, b: 0.12634388, a: 1}
