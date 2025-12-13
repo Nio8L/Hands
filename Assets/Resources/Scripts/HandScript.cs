@@ -91,11 +91,10 @@ public class HandScript : MonoBehaviour
                     }
 
                     handSegment.Remove(targetTile);
-                    targetTile.Default();
+                    targetTile.ChangeColor();
 
                     UpdatePosition(x, y);
                     
-                    //targetTile.Activate(this);
                     originTile.Deactivate(this);
                 }
             }else if (targetTile.type.walkable && handSegment.Count < maxLength)
@@ -106,7 +105,6 @@ public class HandScript : MonoBehaviour
                 UpdatePosition(x, y);
                 
                 targetTile.Activate(this);
-                originTile.Deactivate(this);
             }
         }
     }
@@ -148,7 +146,6 @@ public class HandScript : MonoBehaviour
                 UpdatePosition(x + dx, y + dy);
                 
                 targetTile.Activate(this);
-                //originTile.Deactivate(this);
             }
             else
             {
@@ -169,7 +166,6 @@ public class HandScript : MonoBehaviour
 
             UpdatePosition(targetTile.x, targetTile.y);
                     
-            //targetTile.Activate(this);
             originTile.Deactivate(this);
         }
     }
