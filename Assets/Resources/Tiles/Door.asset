@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e52d47924eacb149a954816acb5afac, type: 3}
   m_Name: Door
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.18052149, b: 1, a: 1}
+  sprite: {fileID: 5213229242370633579, guid: fef102a648d3d4f4abfb94380092af56, type: 3}
   walkable: 0
