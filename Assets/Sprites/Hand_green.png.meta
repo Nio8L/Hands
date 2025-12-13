@@ -106,10 +106,10 @@ TextureImporter:
       name: Hand_green_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 4
-        width: 191
-        height: 57
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: Hand_green_1
       rect:
         serializedVersion: 2
-        x: 191
+        x: 64
         y: 0
-        width: 41
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Hand_green_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb323db15aecd5478397dd991b01755
+      internalID: 2125970693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand_green_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4acce3b5e7d23459b86041c183f739
+      internalID: -1227246832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1e9befd1f9a462d4f8a69117fcfe0686
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       Hand_green_0: 303381230940924322
       Hand_green_1: 235743600303208047
+      Hand_green_2: 2125970693
+      Hand_green_3: -1227246832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
