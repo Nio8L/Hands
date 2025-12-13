@@ -14,6 +14,7 @@ public class HandScript : MonoBehaviour
 
     public List<Tile> handSegment;
     public TileType handPart;
+    public int maxLength;
     int controller;
 
     public void Setup(Color color, int controller)
@@ -88,7 +89,7 @@ public class HandScript : MonoBehaviour
 
                     UpdatePosition(x, y);
                 }
-            }else if (targetTile.type.walkable)
+            }else if (targetTile.type.walkable && handSegment.Count < maxLength)
             {
                 handSegment.Add(originTile);
                 originTile.SetType(handPart);
