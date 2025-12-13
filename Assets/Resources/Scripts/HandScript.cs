@@ -5,15 +5,15 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.XR;
 
 public class HandScript : MonoBehaviour
 {
     public float speed = 5f;
 
-    int x = 0, y = 0;
+    public int x = 0, y = 0;
 
     public List<Tile> handSegment;
+    //public TileType handPart;
     public int maxLength;
     int controller;
     Color handColor;
@@ -84,18 +84,93 @@ public class HandScript : MonoBehaviour
             {
                 if (handSegment[^1].x == targetTile.x && handSegment[^1].y == targetTile.y)
                 {
+                    if (handSegment.Count > maxLength)
+                    {
+                        Retract();
+                        return;
+                    }
+
                     handSegment.Remove(targetTile);
                     targetTile.Default();
 
                     UpdatePosition(x, y);
+                    
+                    //targetTile.Activate(this);
+                    originTile.Deactivate(this);
                 }
             }else if (targetTile.type.walkable && handSegment.Count < maxLength)
             {
                 handSegment.Add(originTile);
                 originTile.HandOn(handColor);
-        
+
                 UpdatePosition(x, y);
+                
+                targetTile.Activate(this);
+                originTile.Deactivate(this);
             }
+        }
+    }
+
+    public void ForceMove(int direction, int length)
+    {
+        int dx = 0;
+        int dy = 0; 
+     
+        switch (direction)
+        {
+            case 0:
+                dy = 1;
+                break;
+            case 1:
+                dx = 1;
+                break;
+            case 2:
+                dy = -1;
+                break;
+            case 3:
+                dx = -1;
+                break; 
+            default:
+                dy = 0;
+                break;
+        }
+
+        for (int i = 0; i < length; i++)
+        {
+            Tile targetTile = Level.instance.tiles[x + dx, y + dy];
+            Tile originTile = Level.instance.tiles[x, y];
+            
+            if (targetTile.type.walkable)
+            {
+                handSegment.Add(originTile);
+                originTile.HandOn(handColor);
+
+                UpdatePosition(x + dx, y + dy);
+                
+                targetTile.Activate(this);
+                //originTile.Deactivate(this);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+    }
+
+    public void Retract()
+    {
+        while (handSegment.Any())
+        {
+            Tile targetTile = handSegment[^1];
+            Tile originTile = Level.instance.tiles[x, y];
+            handSegment.Remove(targetTile);
+            targetTile.Default();
+
+            UpdatePosition(targetTile.x, targetTile.y);
+                    
+            //targetTile.Activate(this);
+            originTile.Deactivate(this);
         }
     }
 

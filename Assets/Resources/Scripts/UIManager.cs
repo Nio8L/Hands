@@ -32,4 +32,11 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }
     }
+
+    public void OnResumeButtonPress()
+    {
+        //TO DO:
+        //Hide Pause menu using
+        //SetActive(false);
+    }
 }
