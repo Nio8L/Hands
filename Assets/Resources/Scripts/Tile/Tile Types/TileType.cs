@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "TileType/Default")]
 public class TileType : ScriptableObject {
-    public Sprite sprite;
+    public Color color;
     public bool walkable;
 
     public virtual void Effect(HandScript hand)
