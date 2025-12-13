@@ -11,6 +11,8 @@ public class Tile : MonoBehaviour
     public TileType type;
     private SpriteRenderer spriteRenderer;
 
+    public TileType defaultType;
+
     public int x, y;
 
     private void Awake() {
@@ -38,7 +40,7 @@ public class Tile : MonoBehaviour
 
     public void Default()
     {
-        SetType(LevelEditor.instance.defaultType);
+        SetType(defaultType);
     }
 
 }

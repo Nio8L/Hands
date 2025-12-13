@@ -48,8 +48,8 @@ public class HandScript : MonoBehaviour
     {
         if ((0 <= x && x < LevelEditor.instance.width) && (0 <= y && y < LevelEditor.instance.height))
         {
-            Tile targetTile = LevelEditor.instance.tiles[x, y];
-            Tile originTile = LevelEditor.instance.tiles[this.x, this.y];
+            Tile targetTile = Level.instance.tiles[x, y];
+            Tile originTile = Level.instance.tiles[this.x, this.y];
             
             if (handSegment.Contains(targetTile))
             {
@@ -72,7 +72,7 @@ public class HandScript : MonoBehaviour
 
     void UpdatePosition(int x, int y)
     {
-        transform.position = LevelEditor.instance.tiles[x, y].transform.position;
+        transform.position = Level.instance.tiles[x, y].transform.position;
         this.x = x;
         this.y = y;
     }
