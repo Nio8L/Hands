@@ -240,9 +240,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1045309404}
     - target: {fileID: 405998870696992725, guid: 40cfae64a3f92a24d9b84936023f9e03, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1045309407}
+    - target: {fileID: 405998870696992725, guid: 40cfae64a3f92a24d9b84936023f9e03, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1045309407}
+    - target: {fileID: 405998870696992725, guid: 40cfae64a3f92a24d9b84936023f9e03, type: 3}
+      propertyPath: canvasBody
+      value: 
+      objectReference: {fileID: 1045309404}
     - target: {fileID: 2900988759346416647, guid: 40cfae64a3f92a24d9b84936023f9e03, type: 3}
       propertyPath: m_Name
       value: UI Manager
