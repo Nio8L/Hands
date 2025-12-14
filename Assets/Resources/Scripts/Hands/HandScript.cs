@@ -202,7 +202,6 @@ public class HandScript : MonoBehaviour
             UpdateMoves(maxLength);
             handSegment.Remove(targetTile);
 
-            targetTile.Default();
             UpdatePosition(targetTile.x, targetTile.y);
             originTile.Deactivate(this);
 
