@@ -41,7 +41,7 @@ public class Level : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject newTile = Instantiate(tilePrefab, new(x + x * 0.2f, y + y * 0.2f), Quaternion.identity);
+                GameObject newTile = Instantiate(tilePrefab, new(x, y), Quaternion.identity);
                 newTile.transform.parent = transform;
                 tiles[x, y] = newTile.GetComponent<Tile>();
                 tiles[x, y].x = x;
