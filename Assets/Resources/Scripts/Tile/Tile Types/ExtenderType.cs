@@ -5,15 +5,12 @@ using UnityEngine;
 public class ExtenderType : TileType
 {
     public int length;
-    public int direction;
 
     public override void Effect(HandScript hand)
-    {  
-        hand.ForceMove(direction, length);
+    {
+        Debug.Log("step on extender");
+        hand.ForceMove(length);
     }
 
-    public override void Uneffect(HandScript hand)
-    {
-        
-    }
+    public override void Uneffect(HandScript hand) { }
 }

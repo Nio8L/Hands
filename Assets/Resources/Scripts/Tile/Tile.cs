@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.VisualScripting;
@@ -12,21 +10,28 @@ public class Tile : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public TileType defaultType;
+    public Sprite sprite;
 
     public int x, y;
 
-    private void Awake() {
+    private void Awake()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+
     }
 
-    private void Start() {
+    private void Start()
+    {
         defaultType = Instantiate(type);
         type = Instantiate(type);
+        ApplySprite(type.sprite);
     }
 
     public void ChangeColor()
     {
-        spriteRenderer.color = type.color;
+        spriteRenderer.sprite = type.sprite;
     }
 
     private void OnMouseDown() {
@@ -41,8 +46,20 @@ public class Tile : MonoBehaviour
     {
         if(tileType == null) return;
 
-        type = Instantiate(tileType);
+        type = tileType;
         ChangeColor();
+    }
+
+    public void ApplySprite(Sprite newSprite)
+    {
+        if (newSprite == null) return;
+
+        spriteRenderer.sprite = newSprite;
+
+        Vector2 spriteSize = newSprite.rect.size;
+        float scaleX = 128f / spriteSize.x;
+        float scaleY = 128f / spriteSize.y;
+        transform.localScale = new Vector3(scaleX, scaleY, 1f);
     }
 
     public void Default()
@@ -50,9 +67,9 @@ public class Tile : MonoBehaviour
         SetType(defaultType);
     }
 
-    public void HandOn(Color color)
+     public void HandOn()
     {
-        spriteRenderer.color = color;
+         spriteRenderer.sprite = type.sprite;
     }
 
     public void Activate(HandScript hand)
