@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void OnResumeButtonPress()
     {
+        pauseMenu.GetComponent<Canvas>().enabled = false;
         Time.timeScale = 1f;
         pause.alpha = 0;
         isActive = false;
