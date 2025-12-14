@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +23,22 @@ public class LevelTracker : MonoBehaviour
     {
         level++;
         SceneManager.LoadScene("Level" + level);
+    }
+
+    private void Reset(Scene arg0, LoadSceneMode arg1)
+    {
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            level = 1;
+        }
+    }
+
+    private void OnEnable() {
+        SceneManager.sceneLoaded += Reset;
+    }
+
+    private void OnDisable() {
+        SceneManager.sceneLoaded -= Reset;   
     }
 
 }
