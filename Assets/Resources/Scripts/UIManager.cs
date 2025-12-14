@@ -5,14 +5,14 @@ using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
-    public CanvasGroup pause;
+    public CanvasGroup canvasBody;
     bool isActive = false;
-    public Canvas pauseMenu;
+    public Canvas canvas;
 
     private void Start()
     {
-        pause.alpha = 0;
-        pauseMenu.GetComponent<Canvas>().enabled = false;
+        canvasBody.alpha = 0;
+        canvas.GetComponent<Canvas>().enabled = false;
     }
     public void OnStartButtonPress()
     {
@@ -35,15 +35,22 @@ public class UIManager : MonoBehaviour
 
     public void OnCreditsButtonPress()
     {
-        SceneManager.LoadScene("Credits");
+        canvasBody.alpha = 1;
+        canvas.GetComponent<Canvas>().enabled = true;
     }
 
     public void OnResumeButtonPress()
     {
-        pauseMenu.GetComponent<Canvas>().enabled = false;
+        canvas.GetComponent<Canvas>().enabled = false;
         Time.timeScale = 1f;
-        pause.alpha = 0;
+        canvasBody.alpha = 0;
         isActive = false;
+    }
+
+    public void OnBackButtonPress()
+    {
+        canvasBody.alpha = 0;
+        canvas.GetComponent<Canvas>().enabled = false;
     }
 
     public void Update()
@@ -52,16 +59,16 @@ public class UIManager : MonoBehaviour
         {
             if (isActive == false)
             {
-                pauseMenu.GetComponent<Canvas>().enabled = true;
-                Time.timeScale = 0f;
-                pause.alpha = 1;
+                canvas.GetComponent<Canvas>().enabled = true;
+                Time.timeScale = 0;
+                canvasBody.alpha = 1;
                 isActive = true;
             }
             else
             {
-                pauseMenu.GetComponent<Canvas>().enabled = false;
-                Time.timeScale = 1f;
-                pause.alpha = 0;
+                canvas.GetComponent<Canvas>().enabled = false;
+                Time.timeScale = 1;
+                canvasBody.alpha = 0;
                 isActive = false;
 
             }
