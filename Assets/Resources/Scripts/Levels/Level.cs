@@ -26,6 +26,7 @@ public class Level : MonoBehaviour
             int x = i / height;
             int y = i % height;
             tiles[x, y] = transform.GetChild(i).transform.GetComponent<Tile>();
+            tiles[x, y].transform.position = new(x, y);
         }
 
         HandManager.instance.Generate(width, height);

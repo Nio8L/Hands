@@ -51,11 +51,11 @@ public class Tile : MonoBehaviour
         if (newSprite == null) return;
 
         spriteRenderer.sprite = newSprite;
-
-        Vector2 spriteSize = newSprite.rect.size;
+        
+        /*Vector2 spriteSize = newSprite.rect.size;
         float scaleX = 128f / spriteSize.x;
         float scaleY = 128f / spriteSize.y;
-        transform.localScale = new Vector3(scaleX, scaleY, 1f);
+        transform.localScale = new Vector3(scaleX, scaleY, 1f); */
     }
 
     public void Default()
