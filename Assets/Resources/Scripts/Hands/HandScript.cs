@@ -135,6 +135,8 @@ public class HandScript : MonoBehaviour
                     originTile.Deactivate(this);
                     
                     HandManager.instance.RebuildHand(this);
+
+                    SoundManager.instance.Play("Retract");
                 }
             }
             // EXTEND
@@ -151,6 +153,8 @@ public class HandScript : MonoBehaviour
                 targetTile.Activate(this);
 
                 HandManager.instance.RebuildHand(this);
+
+                SoundManager.instance.Play("Extend");
             }
         }
     }

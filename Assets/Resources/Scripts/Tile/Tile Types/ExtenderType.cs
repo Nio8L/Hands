@@ -8,7 +8,6 @@ public class ExtenderType : TileType
 
     public override void Effect(HandScript hand)
     {
-        Debug.Log("step on extender");
         hand.ForceMove(length);
     }
 

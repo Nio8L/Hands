@@ -9,10 +9,12 @@ public class ButtonType : TileType
     public override void Effect(HandScript hand)
     {
         Level.instance.tiles[targetX, targetY].SetType(openDoor);
+        SoundManager.instance.Play("Press");
     }
 
     public override void Uneffect(HandScript hand)
     {
         Level.instance.tiles[targetX, targetY].Default();
+        SoundManager.instance.Play("Press");
     }
 }

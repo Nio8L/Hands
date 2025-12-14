@@ -166,26 +166,33 @@ public class HandManager : MonoBehaviour
     }
 
 
+    bool found = false;
     public void CheckWin()
     {
-        if (hand1.x == hand2.x && hand1.y == hand2.y)
+        if (hand1.x == hand2.x && hand1.y == hand2.y && !found)
         {
             GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
+            SoundManager.instance.Play("Slap");
+            found = true;
         }
 
         foreach (Tile t in hand1.handSegment)
         {
-            if (t.x == hand2.x && t.y == hand2.y)
+            if (t.x == hand2.x && t.y == hand2.y && !found)
             {
                 GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
+                SoundManager.instance.Play("Slap");
+                found = true;
             }
         }
 
         foreach (Tile t in hand2.handSegment)
         {
-            if (t.x == hand1.x && t.y == hand1.y)
+            if (t.x == hand1.x && t.y == hand1.y && !found)
             {
-               GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
+                SoundManager.instance.Play("Slap");
+                found = true;
             }
         }   
     }

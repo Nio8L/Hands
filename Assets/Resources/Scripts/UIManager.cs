@@ -11,34 +11,39 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(canvasBody == null);
-        Debug.Log(canvas == null);
         canvasBody.alpha = 0;
         canvas.GetComponent<Canvas>().enabled = false;
     }
     public void OnStartButtonPress()
     {
         SceneManager.LoadScene("Level1");
+        SoundManager.instance.Play("Click");
     }
 
     public void OnOptionsButtonPress()
     {
-        SceneManager.LoadScene("Options");
+        OptionsMenu.instance.Open();
+        SoundManager.instance.Play("Click");
     }
+
+    
     public void OnExitButtonPress()
     {
+        SoundManager.instance.Play("Click");
         Application.Quit();
     }
 
     public void OnMenuButtonPress()
     {
         SceneManager.LoadScene("Start");
+        SoundManager.instance.Play("Click");
     }
 
     public void OnCreditsButtonPress()
     {
         canvasBody.alpha = 1;
         canvas.GetComponent<Canvas>().enabled = true;
+        SoundManager.instance.Play("Click");
     }
 
     public void OnResumeButtonPress()
@@ -47,12 +52,14 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         canvasBody.alpha = 0;
         isActive = false;
+        SoundManager.instance.Play("Click");
     }
 
     public void OnBackButtonPress()
     {
         canvasBody.alpha = 0;
         canvas.GetComponent<Canvas>().enabled = false;
+        SoundManager.instance.Play("Click");
     }
 
     public void Update()
@@ -65,6 +72,7 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 0;
                 canvasBody.alpha = 1;
                 isActive = true;
+                SoundManager.instance.Play("Click");
             }
             else
             {
@@ -72,7 +80,7 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 1;
                 canvasBody.alpha = 0;
                 isActive = false;
-
+                SoundManager.instance.Play("Click");
             }
         }
     }

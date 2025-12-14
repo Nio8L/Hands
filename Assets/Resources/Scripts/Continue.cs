@@ -5,5 +5,6 @@ public class Continue : MonoBehaviour
     public void NextLevel()
     {
         LevelTracker.instance.NextLevel();
+        SoundManager.instance.Play("Click");
     }
 }

@@ -6,5 +6,6 @@ public class PlayAgian : MonoBehaviour
  public void OnPlayAgainButtonPress()
     {
         SceneManager.LoadScene("Start");
+        SoundManager.instance.Play("Click");
     }
 }
