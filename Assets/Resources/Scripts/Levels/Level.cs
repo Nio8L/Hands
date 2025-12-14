@@ -27,6 +27,8 @@ public class Level : MonoBehaviour
             int y = i % height;
             tiles[x, y] = transform.GetChild(i).transform.GetComponent<Tile>();
         }
+
+        HandManager.instance.Generate(width, height);
     }
 
     public void Generate(int width, int height)

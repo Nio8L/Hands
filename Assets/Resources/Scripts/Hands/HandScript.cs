@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandScript : MonoBehaviour
@@ -17,6 +18,9 @@ public class HandScript : MonoBehaviour
 
     MoveCounter moveCounter;
 
+    public Sprite head;
+    public Sprite head2;
+
     public void Setup(Color color, int controller)
     {
         handColor = color;
@@ -26,13 +30,19 @@ public class HandScript : MonoBehaviour
         if (controller == 1)
         {
             moveCounter = GameObject.Find("MoveCounterWASD").GetComponent<MoveCounter>();
+            GetComponent<SpriteRenderer>().sprite = head;
         }
         else
         {
             moveCounter = GameObject.Find("MoveCounterArrows").GetComponent<MoveCounter>();
+            GetComponent<SpriteRenderer>().sprite = head2;
         }
 
         UpdateMoves(maxLength);
+    }
+
+    private void Start() {
+        HandManager.instance.SetHand(this);
     }
 
     void Update()
@@ -41,22 +51,22 @@ public class HandScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                Move(x, y + 1);
+                Move(0);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                Move(x, y - 1);
+                Move(2);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                Move(x - 1, y);
+                Move(3);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                Move(x + 1, y);
+                Move(1);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
@@ -64,33 +74,47 @@ public class HandScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Move(x, y + 1);
+                Move(0);
                 transform.rotation = Quaternion.Euler(0, 0, 90);
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Move(x, y - 1);
+                Move(2);
                 transform.rotation = Quaternion.Euler(0, 0, 270);
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                Move(x - 1, y);
+                Move(3);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                Move(x + 1, y);
+                Move(1);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }
 
-    void Move(int x, int y)
+    void Move(int direction)
     {
-        if ((0 <= x && x < Level.instance.width) && (0 <= y && y < Level.instance.height))
+        int dx = 0;
+        int dy = 0;
+
+        switch (direction)
         {
-            Tile targetTile = Level.instance.tiles[x, y];
-            Tile originTile = Level.instance.tiles[this.x, this.y];
+            case 0: dy = 1; break;
+            case 1: dx = 1; break;
+            case 2: dy = -1; break;
+            case 3: dx = -1; break;
+        }
+
+        int tilesX = x + dx;
+        int tilesY = y + dy;
+
+        if ((0 <= tilesX && tilesX < Level.instance.width) && (0 <= tilesY && tilesY < Level.instance.height))
+        {
+            Tile targetTile = Level.instance.tiles[tilesX, tilesY];
+            Tile originTile = Level.instance.tiles[x, y];
 
             // RETRACT
             if (handSegment.Contains(targetTile))
@@ -99,15 +123,17 @@ public class HandScript : MonoBehaviour
                 {
                     if (handSegment.Count > maxLength)
                     {
-                     Retract();
+                        Retract();
                         return;   
                     }
                     handSegment.Remove(targetTile);
                     if (handSegment.Count < maxLength) UpdateMoves(movesLeft + 1);
 
                     targetTile.Default();
-                    UpdatePosition(x, y);
+                    UpdatePosition(tilesX, tilesY);
                     originTile.Deactivate(this);
+                    
+                    HandManager.instance.RebuildHand(this);
                 }
             }
             // EXTEND
@@ -117,10 +143,12 @@ public class HandScript : MonoBehaviour
                 UpdateMoves(movesLeft - 1);
                 originTile.HandOn(handColor);
 
-                UpdatePosition(x, y);
+                UpdatePosition(tilesX, tilesY);
 
                 targetTile.Activate(this);
                 originTile.Deactivate(this);
+
+                HandManager.instance.RebuildHand(this);
             }
         }
     }
@@ -153,6 +181,8 @@ public class HandScript : MonoBehaviour
                 UpdatePosition(x + dx, y + dy);
 
                 targetTile.Activate(this);
+
+                HandManager.instance.RebuildHand(this);
             }
             else
             {
@@ -173,6 +203,8 @@ public class HandScript : MonoBehaviour
             targetTile.Default();
             UpdatePosition(targetTile.x, targetTile.y);
             originTile.Deactivate(this);
+
+            HandManager.instance.RebuildHand(this);
         }
     }
 

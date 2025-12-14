@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7369290137171563155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6998727831830991714}
+  - component: {fileID: 1601818671453611974}
+  m_Layer: 0
+  m_Name: Hand Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6998727831830991714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369290137171563155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.913526, y: -0.35587078, z: 1.5205266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1601818671453611974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369290137171563155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f972ed37c0cbf499851a87fca87da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPrefab: {fileID: 8317979749818339405, guid: 9064a73a36658b2449e2599599d29812, type: 3}
+  handStart: {fileID: 303381230940924322, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  handStraight: {fileID: 235743600303208047, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  handCorner: {fileID: 879888368, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  handStart2: {fileID: -7049348231331031243, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}
+  handStraight2: {fileID: 2244244869886354648, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}
+  handCorner2: {fileID: -963292486, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}

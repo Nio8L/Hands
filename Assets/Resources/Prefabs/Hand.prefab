@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7845717174433678876
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -305728275, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
   m_Color: {r: 0.48275536, g: 0.6178554, b: 0.8792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,6 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  x: 0
+  y: 0
   handSegment: []
-  handPart: {fileID: 11400000, guid: 7669c6be99f0b554a9a21c2379928012, type: 2}
   maxLength: 3
+  movesLeft: 0
+  head: {fileID: -305728275, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  head2: {fileID: 1479531145, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}

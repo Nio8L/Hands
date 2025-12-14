@@ -106,10 +106,10 @@ TextureImporter:
       name: Hand_blue_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 4
-        width: 191
-        height: 57
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: Hand_blue_1
       rect:
         serializedVersion: 2
-        x: 191
+        x: 64
         y: 0
-        width: 41
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Hand_blue_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ca4868a0f874548aa5f118abefbd78
+      internalID: 1479531145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand_blue_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1415c7e2bf8e66448ba1e0dd4f146547
+      internalID: -963292486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 884bf1cb392d62a4b8f479174ab19229
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       Hand_blue_0: -7049348231331031243
       Hand_blue_1: 2244244869886354648
+      Hand_blue_2: 1479531145
+      Hand_blue_3: -963292486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
