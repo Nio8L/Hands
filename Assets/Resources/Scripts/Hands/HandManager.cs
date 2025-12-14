@@ -51,7 +51,7 @@ public class HandManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject newPart = Instantiate(partPrefab, new(x + x * 0.2f, y + y * 0.2f), Quaternion.identity);
+                GameObject newPart = Instantiate(partPrefab, new(x, y), Quaternion.identity);
                 parts[x, y] = newPart.GetComponent<HandPart>();
                 parts[x, y].x = x;
                 parts[x, y].y = y;

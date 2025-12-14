@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e52d47924eacb149a954816acb5afac, type: 3}
   m_Name: Opened Door
   m_EditorClassIdentifier: 
-  color: {r: 0.4226913, g: 0.5221677, b: 0.96981126, a: 1}
+  sprite: {fileID: -5101999300640109855, guid: 7090b151283fd4e7985487208eea43fd, type: 3}
   walkable: 1

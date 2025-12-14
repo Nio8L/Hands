@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b51f4632993fec4391b6755a37f377f, type: 3}
   m_Name: ButtonLevel6
   m_EditorClassIdentifier: 
-  color: {r: 0.7395263, g: 0, b: 1, a: 1}
+  sprite: {fileID: -4765447094537660517, guid: bcdfe611d21364e4da2b4e13fb9aae67, type: 3}
   walkable: 1
   targetX: 1
   targetY: 3
