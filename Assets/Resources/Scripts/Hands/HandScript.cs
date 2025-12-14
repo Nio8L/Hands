@@ -13,26 +13,29 @@ public class HandScript : MonoBehaviour
     public List<Tile> handSegment;
     public int maxLength;
     int controller;
-    Color handColor;
     public int movesLeft;
 
     MoveCounter moveCounter;
 
     public int direction = -1;
 
-    public void Setup(Color color, int controller)
+    public Sprite head;
+    public Sprite head2;
+
+    public void Setup(int controller)
     {
-        handColor = color;
         this.controller = controller;
         maxLength = 3;
 
         if (controller == 1)
         {
             moveCounter = GameObject.Find("MoveCounterWASD").GetComponent<MoveCounter>();
+            GetComponent<SpriteRenderer>().sprite = head;
         }
         else
         {
             moveCounter = GameObject.Find("MoveCounterArrows").GetComponent<MoveCounter>();
+            GetComponent<SpriteRenderer>().sprite = head2;
         }
 
         UpdateMoves(maxLength);
@@ -123,6 +126,8 @@ public class HandScript : MonoBehaviour
                         Retract();
                         return;   
                     }
+                    this.direction = direction;
+                    
                     handSegment.Remove(targetTile);
                     if (handSegment.Count < maxLength) UpdateMoves(movesLeft + 1);
 
@@ -136,6 +141,8 @@ public class HandScript : MonoBehaviour
             // EXTEND
             else if (targetTile.type.walkable && movesLeft > 0)
             {
+                this.direction = direction;
+                
                 handSegment.Add(originTile);
                 UpdateMoves(movesLeft - 1);
                 originTile.HandOn();
@@ -150,7 +157,7 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void ForceMove(int direction, int length)
+    public void ForceMove(int length)
     {
         int dx = 0;
         int dy = 0;

@@ -15,11 +15,11 @@ public class LevelAssembler : MonoBehaviour
         Level.instance.Load();
         
         HandScript hand = Instantiate(handPrefab).GetComponent<HandScript>();
-        hand.Setup(color1, 1);
+        hand.Setup(1);
         hand.UpdatePosition(startX1, startY1);
 
         HandScript hand2 = Instantiate(handPrefab).GetComponent<HandScript>();
-        hand2.Setup(color2, 0);
+        hand2.Setup(0);
         hand2.UpdatePosition(startX2, startY2);
     }
 }

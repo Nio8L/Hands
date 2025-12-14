@@ -12,11 +12,6 @@ public class HandPart : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void ChangeSprite(Sprite sprite)
-    {
-        spriteRenderer.sprite = sprite;
-    }
-
     public void Set(HandScript owner, Sprite sprite, Quaternion rotation)
     {
         this.owner = owner;

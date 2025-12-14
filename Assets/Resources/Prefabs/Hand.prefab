@@ -173,7 +173,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6785529968877943624
@@ -194,5 +194,6 @@ MonoBehaviour:
   handSegment: []
   maxLength: 3
   movesLeft: 0
-  head: {fileID: -305728275, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  direction: -1
+  head: {fileID: -5465989549318943125, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
   head2: {fileID: 1479531145, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}

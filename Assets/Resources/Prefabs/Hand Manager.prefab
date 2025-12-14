@@ -47,7 +47,7 @@ MonoBehaviour:
   partPrefab: {fileID: 8317979749818339405, guid: 9064a73a36658b2449e2599599d29812, type: 3}
   handStart: {fileID: 303381230940924322, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
   handStraight: {fileID: 235743600303208047, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
-  handCorner: {fileID: 879888368, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
+  handCorner: {fileID: -216034712, guid: 28c90d6057f7e56459aa4c5f6ea8e5fa, type: 3}
   handStart2: {fileID: -7049348231331031243, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}
   handStraight2: {fileID: 2244244869886354648, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}
   handCorner2: {fileID: -963292486, guid: 4c93dfbaee315e244a02d36a26bc9ca6, type: 3}

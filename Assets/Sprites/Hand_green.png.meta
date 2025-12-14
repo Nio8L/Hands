@@ -162,8 +162,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ec8d60777e424b0800000000000000
+      spriteID: 7032a7ccd7988b140923cb1704e3f0f1
       internalID: -5465989549318943125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand_green_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff20220e96b6724db99642308bcc8cc
+      internalID: -216034712
       vertices: []
       indices: 
       edges: []
@@ -172,7 +194,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1e1089d307cb53846a862a9d87fe9b74
     internalID: 0
     vertices: []
     indices: 
@@ -185,6 +207,7 @@ TextureImporter:
       Hand_green_0: 303381230940924322
       Hand_green_1: 235743600303208047
       Hand_green_2: -5465989549318943125
+      Hand_green_3: -216034712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
