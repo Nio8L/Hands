@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(canvasBody == null);
+        Debug.Log(canvas == null);
         canvasBody.alpha = 0;
         canvas.GetComponent<Canvas>().enabled = false;
     }
