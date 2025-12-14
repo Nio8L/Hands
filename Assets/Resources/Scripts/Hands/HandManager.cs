@@ -177,7 +177,7 @@ public class HandManager : MonoBehaviour
         {
             if (t.x == hand2.x && t.y == hand2.y)
             {
-                LevelTracker.instance.NextLevel();
+                GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
             }
         }
 
@@ -185,7 +185,7 @@ public class HandManager : MonoBehaviour
         {
             if (t.x == hand1.x && t.y == hand1.y)
             {
-                LevelTracker.instance.NextLevel();
+               GameObject.Find("Completed").transform.GetChild(0).gameObject.SetActive(true);
             }
         }   
     }
