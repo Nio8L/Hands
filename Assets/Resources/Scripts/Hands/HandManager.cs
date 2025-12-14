@@ -166,4 +166,11 @@ public class HandManager : MonoBehaviour
     }
 
 
+    public void CheckWin()
+    {
+        if (hand1.x == hand2.x && hand1.y == hand2.y)
+        {
+            LevelTracker.instance.NextLevel();
+        }
+    }
 }
