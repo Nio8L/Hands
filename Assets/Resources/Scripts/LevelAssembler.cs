@@ -16,10 +16,10 @@ public class LevelAssembler : MonoBehaviour
         
         HandScript hand = Instantiate(handPrefab).GetComponent<HandScript>();
         hand.Setup(1);
-        hand.UpdatePosition(startX1, startY1);
+        hand.SetPosition(startX1, startY1);
 
         HandScript hand2 = Instantiate(handPrefab).GetComponent<HandScript>();
         hand2.Setup(0);
-        hand2.UpdatePosition(startX2, startY2);
+        hand2.SetPosition(startX2, startY2);
     }
 }

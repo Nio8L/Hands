@@ -17,15 +17,11 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null)
-            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-
     }
 
     private void Start()
     {
-        defaultType = Instantiate(type);
-        type = Instantiate(type);
+        defaultType = type;
         ApplySprite(type.sprite);
     }
 

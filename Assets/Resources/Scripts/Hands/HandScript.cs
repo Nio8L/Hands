@@ -211,6 +211,12 @@ public class HandScript : MonoBehaviour
 
     public void UpdatePosition(int x, int y)
     {
+        SetPosition(x, y);
+        HandManager.instance.CheckWin();
+    }
+
+    public void SetPosition(int x, int y)
+    {
         transform.position = Level.instance.tiles[x, y].transform.position;
         this.x = x;
         this.y = y;
