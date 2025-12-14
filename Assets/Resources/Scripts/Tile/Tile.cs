@@ -29,10 +29,6 @@ public class Tile : MonoBehaviour
         ApplySprite(type.sprite);
     }
 
-    public void ChangeColor()
-    {
-        spriteRenderer.sprite = type.sprite;
-    }
 
     private void OnMouseDown() {
         if (LevelEditor.instance == null) return;
@@ -47,7 +43,6 @@ public class Tile : MonoBehaviour
         if(tileType == null) return;
 
         type = tileType;
-        ChangeColor();
     }
 
     public void ApplySprite(Sprite newSprite)
