@@ -43,6 +43,7 @@ public class Tile : MonoBehaviour
         if(tileType == null) return;
 
         type = tileType;
+        spriteRenderer.sprite = tileType.sprite;
     }
 
     public void ApplySprite(Sprite newSprite)

@@ -131,7 +131,6 @@ public class HandScript : MonoBehaviour
                     handSegment.Remove(targetTile);
                     if (handSegment.Count < maxLength) UpdateMoves(movesLeft + 1);
 
-                    targetTile.Default();
                     UpdatePosition(tilesX, tilesY);
                     originTile.Deactivate(this);
                     
@@ -150,7 +149,6 @@ public class HandScript : MonoBehaviour
                 UpdatePosition(tilesX, tilesY);
 
                 targetTile.Activate(this);
-                originTile.Deactivate(this);
 
                 HandManager.instance.RebuildHand(this);
             }
